@@ -16,17 +16,6 @@ const userSchema = new mongoose.Schema(
     { collection: "users", timestamps: true }
 );
 
-// ===== Pre-Save-Hook
-// EMAIL toLowerCase bevor sie gespeichter wird
-// --> bei registrierung & durch ".isModified()" bei aktualisierung der Email
-userSchema.pre("save", function (next) {
-    const user = this;
-    if (user.isModified("email")) {
-        user.email = user.email.toLowerCase();
-        next();
-    }
-});
-
 // ===== Mongoose-Instance-Methods:
 // --> ".toProfileInfo()" kann so im Service direkt aufgerufen werden
 userSchema.methods.toProfileInfo = function () {
@@ -36,6 +25,16 @@ userSchema.methods.toProfileInfo = function () {
         profilePicUrl: this.profilePicUrl,
     };
 };
+
+// ===== Pre-Save-Hook
+// EMAIL toLowerCase bevor sie gespeichter wird
+// --> bei registrierung & durch ".isModified()" bei aktualisierung der Email
+userSchema.pre("save", function () {
+    const user = this;
+    if (user.isModified("email")) {
+        user.email = user.email.toLowerCase();
+    }
+});
 
 userSchema.statics.findByEmail = function (email) {
     if (typeof email !== "string") return null;

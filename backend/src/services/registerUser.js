@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import { User } from "../models/index.js";
 import { generateRandomSalt, hashPassword } from "../utils/hash.js";
 import { sendVerificationEmail } from "../utils/verificationEmail.js";
 
@@ -31,5 +31,9 @@ export async function registerUser({ userName, email, password }) {
     await sendVerificationEmail(user);
 
     // return user without sensible Data:
-    return user.toProfileInfo();
+    return userToProfileInfo(user);
+}
+
+function userToProfileInfo({ _id, userName, email, profilePicUrl }) {
+    return { _id, userName, email, profilePicUrl };
 }

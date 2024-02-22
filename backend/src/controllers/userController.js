@@ -6,7 +6,17 @@ import { UserService } from "../services/index.js";
 export const postRegisterUser = catchAsync(
     async (req, res) => {
         const result = await UserService.registerUser(req.body);
-        res.json({ success: true, result });
+        res.status(201).json({ success: true, result });
     },
     { message: "Could not register user" }
+);
+
+export const postVerifyEmailCtrl = catchAsync(
+    async (req, res) => {
+        const userId = req.body.userId;
+        const sixDigitCode = req.body.sixDigitCode;
+        const result = await UserService.verifyEmail({ userId, sixDigitCode });
+        res.json({ success: true, result });
+    },
+    { message: "Could not verify Email" }
 );
