@@ -11,10 +11,10 @@ import { userRouter } from "./routes/userRouter.js";
 dotenv.config();
 
 // Variablen definieren für COOKIE-SESSION
-// const tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
-// const isFrontendLocalhost =
-//     process.env.FRONTEND_URL.startsWith("http://localhost");
-// const cookieSessionSecret = process.env.COOKIE_SESSION_SECRET;
+const tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
+const isFrontendLocalhost =
+    process.env.FRONTEND_URL.startsWith("http://localhost");
+const cookieSessionSecret = process.env.COOKIE_SESSION_SECRET;
 
 // Variablen definieren für DB-CONNECTION und SERVER-START
 const MONGODB_URL = process.env.MONGODB_URL;
@@ -28,17 +28,17 @@ const app = express();
 // re-configure cors middleware (for COOKIE-SESSION)
 app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }));
 
-// app.set("trust proxy", 1); // trust first proxy
-// const cookieSessionOptions = {
-//     name: "session",
-//     secret: cookieSessionSecret, // frei wählbar
-//     httpOnly: true,
-//     expires: new Date(Date.now() + tenDaysInMs),
-//     sameSite: isFrontendLocalhost ? "lax" : "none",
-//     secure: isFrontendLocalhost ? false : true,
-// };
-// console.log(cookieSessionOptions);
-// app.use(cookieSession(cookieSessionOptions)); //* --> COOKIE-PARSER
+app.set("trust proxy", 1); // trust first proxy
+const cookieSessionOptions = {
+    name: "session",
+    secret: cookieSessionSecret, // frei wählbar
+    httpOnly: true,
+    expires: new Date(Date.now() + tenDaysInMs),
+    sameSite: isFrontendLocalhost ? "lax" : "none",
+    secure: isFrontendLocalhost ? false : true,
+};
+console.log(cookieSessionOptions);
+app.use(cookieSession(cookieSessionOptions)); //* --> COOKIE-PARSER
 
 // -------------------
 app.use(morgan("dev")); // logging middleware

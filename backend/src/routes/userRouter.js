@@ -13,4 +13,5 @@ Endpunkte können so aneinandergekettet werden (Chaining!)
 export const userRouter = express
     .Router()
     .post("/register", UserController.postRegisterUser)
-    .post("/verifyEmail", UserController.postVerifyEmailCtrl);
+    .patch("/verifyEmail", UserController.patchVerifyEmailCtrl)
+    .post("/login", UserController.postLoginUserCtrl);
