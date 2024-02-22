@@ -35,3 +35,17 @@ export const postLoginUserCtrl = catchAsync(
     },
     { message: "Could not login User" }
 );
+
+export const postRefreshTokenCtrl = catchAsync(
+    async (req, res) => {
+        // check if token type is "refresh"
+        if (req.verifiedUserClaims.type !== "refresh") {
+            throw new Error("Token must be type 'refresh");
+        }
+        // valid refreshToken...
+        const authenticatedUserId = req.verifiedUserClaims.sub;
+        const result = await UserService.refreshToken(authenticatedUserId);
+        res.json({ success: true, result });
+    },
+    { message: "Could not create newAccessToken with refreshToken" }
+);
