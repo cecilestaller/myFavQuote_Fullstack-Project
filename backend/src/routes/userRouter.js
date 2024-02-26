@@ -7,7 +7,6 @@ const userRouter = express.Router();
 userRouter.get(); 
 userRouter.post() 
 etc 
-
 Endpunkte können so aneinandergekettet werden (Chaining!)
 */
 
