@@ -6,6 +6,8 @@ import { refreshToken } from "./refreshToken.js";
 import { addNewQuote } from "./addNewQuote.js";
 import { getAllQuotes } from "./getAllQuotes.js";
 import { deleteOneQuote } from "./deleteOneQuote.js";
+import { getQuoteDetails } from "./getQuoteDetails.js";
+import { editQuote } from "./editQuote.js";
 
 export const UserService = {
     registerUser,
@@ -18,4 +20,6 @@ export const QuoteService = {
     addNewQuote,
     getAllQuotes,
     deleteOneQuote,
+    getQuoteDetails,
+    editQuote,
 };

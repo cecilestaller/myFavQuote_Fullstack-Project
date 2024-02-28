@@ -49,3 +49,11 @@ export const postRefreshTokenCtrl = catchAsync(
     },
     { message: "Could not create newAccessToken with refreshToken" }
 );
+
+export const postLogoutCtrl = catchAsync(
+    async (req, res) => {
+        req.session.refreshToken = null;
+        res.json({ success: true });
+    },
+    { message: "Could not logout" }
+);

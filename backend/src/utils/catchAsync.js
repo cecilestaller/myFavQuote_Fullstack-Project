@@ -2,12 +2,12 @@
 
 export function catchAsync(
     controllerFn,
-    { message = "Internal server error" }
+    { message = "Internal server error", status = 500 }
 ) {
-    return (req, res) =>
-        controllerFn(req, res).catch((error) => {
+    return (req, res, next) =>
+        controllerFn(req, res, next).catch((error) => {
             console.log(error);
-            res.status(500).json({
+            res.status(status).json({
                 success: false,
                 error,
                 message: error.message || message,

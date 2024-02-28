@@ -35,3 +35,22 @@ export const removeQuoteCtrl = catchAsync(
     },
     { message: "Could not delete Quote" }
 );
+
+export const getQuoteDetailsCtrl = catchAsync(
+    async (req, res) => {
+        const quoteId = req.params.quoteId;
+        const result = await QuoteService.getQuoteDetails(quoteId);
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Could not get Quote Details" }
+);
+
+export const patchEditQuoteCtrl = catchAsync(
+    async (req, res) => {
+        const quoteId = req.params.quoteId;
+        const quoteInfo = req.body;
+        const result = await QuoteService.editQuote(quoteId, quoteInfo);
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Quote-Update failed" }
+);

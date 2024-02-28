@@ -6,4 +6,14 @@ export const quoteRouter = express
     .Router()
     .post("/:userId", doJwtAuth, QuoteController.postNewQuoteCtrl)
     .get("/:userId", doJwtAuth, QuoteController.getAllQuotesCtrl)
-    .delete("/:userId/:quoteId", doJwtAuth, QuoteController.removeQuoteCtrl);
+    .delete("/:userId/:quoteId", doJwtAuth, QuoteController.removeQuoteCtrl)
+    .get(
+        "/:userId/details/:quoteId",
+        doJwtAuth,
+        QuoteController.getQuoteDetailsCtrl
+    )
+    .patch(
+        "/:userId/edit/:quoteId",
+        doJwtAuth,
+        QuoteController.patchEditQuoteCtrl
+    );
