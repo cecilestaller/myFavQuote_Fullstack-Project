@@ -9,6 +9,9 @@ import { removeQuoteCtrl } from "./quoteController.js";
 import { postLogoutCtrl } from "./userController.js";
 import { getQuoteDetailsCtrl } from "./quoteController.js";
 import { patchEditQuoteCtrl } from "./quoteController.js";
+import { patchToggleFavCtrl } from "./quoteController.js";
+import { patchEditAuthorCtrl } from "./authorController.js";
+import { getAllAuthorsCtrl } from "./authorController.js";
 
 export const UserController = {
     postRegisterUser,
@@ -24,4 +27,10 @@ export const QuoteController = {
     removeQuoteCtrl,
     getQuoteDetailsCtrl,
     patchEditQuoteCtrl,
+    patchToggleFavCtrl,
+};
+
+export const AuthorController = {
+    patchEditAuthorCtrl,
+    getAllAuthorsCtrl,
 };

@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 import cookieSession from "cookie-session";
 import { userRouter } from "./routes/userRouter.js";
 import { quoteRouter } from "./routes/quoteRouter.js";
+import { authorRouter } from "./routes/authorRouter.js";
 
 dotenv.config();
 
@@ -54,6 +55,7 @@ app.use("/download", express.static("data/images")); // download assets via stat
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/quotes", quoteRouter);
+app.use("/api/v1/authors", authorRouter);
 
 // ---------------
 // Declaration of serverListenPort-function which will be called in the DB-connection setup:

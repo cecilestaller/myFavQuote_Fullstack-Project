@@ -16,4 +16,9 @@ export const quoteRouter = express
         "/:userId/edit/:quoteId",
         doJwtAuth,
         QuoteController.patchEditQuoteCtrl
+    )
+    .patch(
+        "/:userId/toggleFav/:quoteId",
+        doJwtAuth,
+        QuoteController.patchToggleFavCtrl
     );

@@ -54,3 +54,12 @@ export const patchEditQuoteCtrl = catchAsync(
     },
     { message: "Quote-Update failed" }
 );
+
+export const patchToggleFavCtrl = catchAsync(
+    async (req, res) => {
+        const quoteId = req.params.quoteId;
+        const result = await QuoteService.toggleFav(quoteId);
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Quote-Update failed" }
+);
