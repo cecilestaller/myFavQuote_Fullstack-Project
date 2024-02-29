@@ -12,6 +12,7 @@ import { patchEditQuoteCtrl } from "./quoteController.js";
 import { patchToggleFavCtrl } from "./quoteController.js";
 import { patchEditAuthorCtrl } from "./authorController.js";
 import { getAllAuthorsCtrl } from "./authorController.js";
+import { postFileUploadCtrl } from "./fileUploadController.js";
 
 export const UserController = {
     postRegisterUser,
@@ -33,4 +34,8 @@ export const QuoteController = {
 export const AuthorController = {
     patchEditAuthorCtrl,
     getAllAuthorsCtrl,
+};
+
+export const FileController = {
+    postFileUploadCtrl,
 };

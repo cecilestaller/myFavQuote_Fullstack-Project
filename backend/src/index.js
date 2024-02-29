@@ -9,6 +9,7 @@ import cookieSession from "cookie-session";
 import { userRouter } from "./routes/userRouter.js";
 import { quoteRouter } from "./routes/quoteRouter.js";
 import { authorRouter } from "./routes/authorRouter.js";
+import { fileUploadRouter } from "./routes/fileUploadRouter.js";
 
 dotenv.config();
 
@@ -52,6 +53,7 @@ app.use(express.json()); // body-parser
 app.get("/", (req, res) => res.send("it works"));
 
 app.use("/download", express.static("data/images")); // download assets via static middleware (MULTER)
+app.use("/api/v1/files", fileUploadRouter); // * upload files
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/quotes", quoteRouter);
