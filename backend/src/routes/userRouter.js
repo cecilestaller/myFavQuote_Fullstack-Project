@@ -16,4 +16,5 @@ export const userRouter = express
     .patch("/verifyEmail", UserController.patchVerifyEmailCtrl)
     .post("/login", UserController.postLoginUserCtrl)
     .post("/refreshToken", doJwtAuth, UserController.postRefreshTokenCtrl)
-    .post("/logout", UserController.postLogoutCtrl);
+    .post("/logout", UserController.postLogoutCtrl)
+    .patch("/profile/:userId", doJwtAuth, UserController.patchEditProfileCtrl);

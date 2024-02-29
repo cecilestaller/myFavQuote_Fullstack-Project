@@ -57,3 +57,16 @@ export const postLogoutCtrl = catchAsync(
     },
     { message: "Could not logout" }
 );
+
+export const patchEditProfileCtrl = catchAsync(
+    async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
+        const profileInfo = req.body;
+        const result = await UserService.editUserProfile(
+            authenticatedUserId,
+            profileInfo
+        );
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Could not update User-Profile" }
+);

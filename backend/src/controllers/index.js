@@ -3,15 +3,19 @@ import { postRegisterUser } from "./userController.js";
 import { patchVerifyEmailCtrl } from "./userController.js";
 import { postLoginUserCtrl } from "./userController.js";
 import { postRefreshTokenCtrl } from "./userController.js";
+import { postLogoutCtrl } from "./userController.js";
+import { patchEditProfileCtrl } from "./userController.js";
+
 import { postNewQuoteCtrl } from "./quoteController.js";
 import { getAllQuotesCtrl } from "./quoteController.js";
 import { removeQuoteCtrl } from "./quoteController.js";
-import { postLogoutCtrl } from "./userController.js";
 import { getQuoteDetailsCtrl } from "./quoteController.js";
 import { patchEditQuoteCtrl } from "./quoteController.js";
 import { patchToggleFavCtrl } from "./quoteController.js";
+
 import { patchEditAuthorCtrl } from "./authorController.js";
 import { getAllAuthorsCtrl } from "./authorController.js";
+
 import { postFileUploadCtrl } from "./fileUploadController.js";
 
 export const UserController = {
@@ -20,6 +24,7 @@ export const UserController = {
     postLoginUserCtrl,
     postRefreshTokenCtrl,
     postLogoutCtrl,
+    patchEditProfileCtrl,
 };
 
 export const QuoteController = {

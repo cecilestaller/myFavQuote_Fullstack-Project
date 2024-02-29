@@ -3,6 +3,7 @@ import { registerUser } from "./registerUser.js";
 import { verifyEmail } from "./verifyEmail.js";
 import { loginUser } from "./loginUser.js";
 import { refreshToken } from "./refreshToken.js";
+import { editUserProfile } from "./editUserProfile.js";
 
 import { addNewQuote } from "./addNewQuote.js";
 import { getAllQuotes } from "./getAllQuotes.js";
@@ -19,6 +20,7 @@ export const UserService = {
     verifyEmail,
     loginUser,
     refreshToken,
+    editUserProfile,
 };
 
 export const QuoteService = {
