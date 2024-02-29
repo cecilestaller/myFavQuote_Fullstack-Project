@@ -1,0 +1,45 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ecb15944;
+
+    color: var(--text);
+    a {
+        .active {
+            color: var(--brown);
+        }
+        &:hover {
+            color: var(--orange);
+        }
+        h1 {
+            font-family: "brygada_it";
+            font-size: 1.5rem;
+        }
+    }
+
+    .nav_list {
+        display: flex;
+        justify-content: space-around;
+        gap: 36px;
+        font-weight: 500;
+        font-size: 1.125rem;
+        font-family: "mont";
+        a {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            .active {
+                color: var(--brown);
+            }
+            &:hover {
+                color: var(--orange);
+            }
+            .profilePic_circle {
+                width: 32px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

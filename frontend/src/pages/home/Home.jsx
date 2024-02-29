@@ -1,5 +1,5 @@
-import NinjaQuote from "../components/NinjaQuote";
-import Nav from "../components/nav/Nav";
+import NinjaQuote from "../../components/NinjaQuote";
+import Nav from "../../components/nav/Nav";
 import "./Home.scss";
 
 const Home = () => {
