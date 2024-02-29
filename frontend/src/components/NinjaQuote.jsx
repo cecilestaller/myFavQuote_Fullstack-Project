@@ -30,10 +30,12 @@ const NinjaQuote = () => {
             <section>
                 {zenQuoteData?.map((singleQuote, index) => {
                     return (
-                        <article key={index}>
-                            <p>{singleQuote.quote}</p>
-                            <h4>{singleQuote.author}</h4>
-                            <p>{singleQuote.category}</p>
+                        <article key={index} className="quote_wrap">
+                            <p className="quote_text">"{singleQuote.quote}"</p>
+                            <h4 className="author">{singleQuote.author}</h4>
+                            <p className="quote_info">
+                                Category: {singleQuote.category}
+                            </p>
                         </article>
                     );
                 })}
