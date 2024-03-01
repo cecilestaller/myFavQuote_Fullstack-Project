@@ -38,8 +38,12 @@ export const removeQuoteCtrl = catchAsync(
 
 export const getQuoteDetailsCtrl = catchAsync(
     async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
         const quoteId = req.params.quoteId;
-        const result = await QuoteService.getQuoteDetails(quoteId);
+        const result = await QuoteService.getQuoteDetails(
+            authenticatedUserId,
+            quoteId
+        );
         res.status(200).json({ success: true, result });
     },
     { message: "Could not get Quote Details" }
@@ -47,9 +51,14 @@ export const getQuoteDetailsCtrl = catchAsync(
 
 export const patchEditQuoteCtrl = catchAsync(
     async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
         const quoteId = req.params.quoteId;
         const quoteInfo = req.body;
-        const result = await QuoteService.editQuote(quoteId, quoteInfo);
+        const result = await QuoteService.editQuote(
+            authenticatedUserId,
+            quoteId,
+            quoteInfo
+        );
         res.status(200).json({ success: true, result });
     },
     { message: "Quote-Update failed" }
@@ -57,8 +66,12 @@ export const patchEditQuoteCtrl = catchAsync(
 
 export const patchToggleFavCtrl = catchAsync(
     async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
         const quoteId = req.params.quoteId;
-        const result = await QuoteService.toggleFav(quoteId);
+        const result = await QuoteService.toggleFav(
+            authenticatedUserId,
+            quoteId
+        );
         res.status(200).json({ success: true, result });
     },
     { message: "Quote-Update failed" }

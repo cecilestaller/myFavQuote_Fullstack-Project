@@ -4,21 +4,13 @@ import { doJwtAuth } from "../middleware/doJwtAuth.js";
 
 export const quoteRouter = express
     .Router()
-    .post("/:userId", doJwtAuth, QuoteController.postNewQuoteCtrl)
-    .get("/:userId", doJwtAuth, QuoteController.getAllQuotesCtrl)
-    .delete("/:userId/:quoteId", doJwtAuth, QuoteController.removeQuoteCtrl)
-    .get(
-        "/:userId/details/:quoteId",
-        doJwtAuth,
-        QuoteController.getQuoteDetailsCtrl
-    )
+    .post("/", doJwtAuth, QuoteController.postNewQuoteCtrl)
+    .get("/", doJwtAuth, QuoteController.getAllQuotesCtrl)
+    .delete("/:quoteId", doJwtAuth, QuoteController.removeQuoteCtrl)
+    .get("/details/:quoteId", doJwtAuth, QuoteController.getQuoteDetailsCtrl)
+    .patch("/edit/:quoteId", doJwtAuth, QuoteController.patchEditQuoteCtrl)
     .patch(
-        "/:userId/edit/:quoteId",
-        doJwtAuth,
-        QuoteController.patchEditQuoteCtrl
-    )
-    .patch(
-        "/:userId/toggleFav/:quoteId",
+        "/toggleFav/:quoteId",
         doJwtAuth,
         QuoteController.patchToggleFavCtrl
     );

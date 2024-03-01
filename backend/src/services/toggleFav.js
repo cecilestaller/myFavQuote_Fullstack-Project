@@ -1,8 +1,11 @@
 import { Quote } from "../models/index.js";
 
-export async function toggleFav(quoteId) {
+export async function toggleFav(authenticatedUserId, quoteId) {
     // find Quote
-    const foundQuote = await Quote.findById(quoteId);
+    const foundQuote = await Quote.findOne({
+        userId: authenticatedUserId,
+        _id: quoteId,
+    });
     if (!foundQuote) throw new Error("Quote dosn't exist anymore");
 
     // find Quote and update

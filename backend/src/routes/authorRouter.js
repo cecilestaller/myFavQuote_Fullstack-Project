@@ -5,8 +5,8 @@ import { AuthorController } from "../controllers/index.js";
 export const authorRouter = express
     .Router()
     .patch(
-        "/:userId/editAuthor/:authorId",
+        "/editAuthor/:authorId",
         doJwtAuth,
         AuthorController.patchEditAuthorCtrl
     )
-    .get("/:userId", doJwtAuth, AuthorController.getAllAuthorsCtrl);
+    .get("/", doJwtAuth, AuthorController.getAllAuthorsCtrl);

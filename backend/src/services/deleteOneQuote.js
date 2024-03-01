@@ -10,6 +10,6 @@ export async function deleteOneQuote(authenticatedUserId, quoteId) {
         throw new Error("You can't delete Quotes created by other users");
 
     // delete Quote
-    const deletedQuote = await Quote.findByIdAndDelete(quoteId);
+    const deletedQuote = await Quote.findByIdAndDelete(foundQuote._id);
     return deletedQuote;
 }
