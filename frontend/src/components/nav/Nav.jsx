@@ -9,7 +9,7 @@ const Nav = () => {
             </NavLink>
 
             <div className="nav_list">
-                <NavLink>SignUp</NavLink>
+                <NavLink to="/register">SignUp</NavLink>
                 <NavLink>LogIn</NavLink>
             </div>
         </nav>

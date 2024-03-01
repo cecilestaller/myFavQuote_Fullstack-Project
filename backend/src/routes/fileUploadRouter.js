@@ -7,7 +7,9 @@ const fileUploadPath = new URL("../../data/images", import.meta.url).pathname;
 
 // 2) Define attachmentStorage (multer.diskstorage) to configure file-destination and filename
 const attachmentStorage = multer.diskStorage({
-    destination: fileUploadPath,
+    destination: function (req, file, cb) {
+        cb(null, fileUploadPath);
+    },
     filename: function (_, file, cb) {
         cb(null, `${Date.now()}-${file.originalname}`);
     },
