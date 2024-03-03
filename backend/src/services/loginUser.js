@@ -21,7 +21,11 @@ export async function loginUser({ email, password }) {
     const refreshToken = createToken(foundUser, "refresh");
 
     return {
-        user: foundUser.toProfileInfo(),
+        user: userToProfileInfo(foundUser),
         tokens: { accessToken, refreshToken },
     };
+}
+
+function userToProfileInfo({ _id, userName, email, profilePicUrl }) {
+    return { _id, userName, email, profilePicUrl };
 }

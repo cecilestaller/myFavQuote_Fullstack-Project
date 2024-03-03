@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import DashNav from "../../components/dash_nav/DashNav";
 import "./Dashboard.scss";
 
-const Dashboard = () => {
+const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
+    const { userId } = useParams();
     return (
         <>
-            <DashNav />
+            <DashNav onLogout={onLogout} />
             <main className="content_wrapper">
                 <h2 className="main_hl">
-                    Hello <span className="brygada_it">Cecile</span>
+                    Hello{" "}
+                    <span className="brygada_it">
+                        {userProfileInfo.userName}
+                    </span>
                 </h2>
                 <article className="menu_wrap">
                     <h3>What do you want to do?</h3>

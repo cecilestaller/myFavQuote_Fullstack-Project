@@ -31,7 +31,7 @@ export const postLoginUserCtrl = catchAsync(
         // tokens in service created --> save refreshToken in COOKIE-SESSION
         req.session.refreshToken = result.tokens.refreshToken;
         console.log(req.session);
-        res.json({ success: true, result });
+        res.status(200).json({ success: true, result });
     },
     { message: "Could not login User" }
 );

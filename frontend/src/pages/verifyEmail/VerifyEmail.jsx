@@ -55,7 +55,7 @@ const VerifyEmail = () => {
                 {successMessage ? (
                     <section>
                         <p style={{ color: "green" }}>{successMessage}</p>
-                        <Link>
+                        <Link to="/login">
                             <button className="btn">Login</button>
                         </Link>
                     </section>

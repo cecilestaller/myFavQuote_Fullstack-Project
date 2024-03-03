@@ -1,4 +1,4 @@
-import { backendUrl } from "../api/index";
+import { backendUrl } from "../api/index.js";
 
 function decodeTokenPayload(token) {
     // token: headerBase64.payloadBase64.signature
@@ -22,10 +22,13 @@ function calcRefreshTokenAfterMs(token) {
 
 export async function doSilentRefresh() {
     try {
-        const response = await fetch(backendUrl + "/api/users/refreshToken", {
-            method: "POST",
-            credentials: "include", // nimm den httpOnly cookies und sende sie in der request mit
-        });
+        const response = await fetch(
+            backendUrl + "/api/v1/users/refreshToken",
+            {
+                method: "POST",
+                credentials: "include", // nimm den httpOnly cookies und sende sie in der request mit
+            }
+        );
         const { success, result, error, message } = await response.json();
         if (!success) {
             console.log(error);

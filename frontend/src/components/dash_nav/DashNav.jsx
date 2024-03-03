@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./DashNav.scss";
 import picDummy from "./../../assets/img/picDummy.png";
+import LogoutBtn from "../LogoutBtn";
 
-const DashNav = () => {
+const DashNav = ({ onLogout }) => {
     return (
         <nav>
             <NavLink>
@@ -10,7 +11,9 @@ const DashNav = () => {
             </NavLink>
 
             <div className="nav_list">
-                <NavLink>Logout</NavLink>
+                <NavLink>
+                    <LogoutBtn onLogout={onLogout} />
+                </NavLink>
                 <NavLink>
                     <img className="profilePic_circle" src={picDummy} alt="" />
                     <p>My Profile</p>
