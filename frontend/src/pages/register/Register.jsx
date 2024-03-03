@@ -9,6 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [profileInfo, setProfileInfo] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -45,6 +46,7 @@ const Register = () => {
             setSuccessMessage(
                 "Registration successful, we sent you an email with a six-digit-verification-code. Please check your inbox and click 'Verify my Email' to enter the Code"
             );
+            setProfileInfo(result);
         } catch (error) {
             console.log(error);
             setErrorMessage(
@@ -52,6 +54,8 @@ const Register = () => {
             );
         }
     }
+
+    console.log(profileInfo);
 
     return (
         <>
@@ -62,8 +66,8 @@ const Register = () => {
                 </h2>
 
                 <p style={{ color: "green" }}>{successMessage}</p>
-                {successMessage ? (
-                    <Link to="/verify-email">
+                {profileInfo ? (
+                    <Link to={`/verify-email/${profileInfo._id}`}>
                         <button className="btn">Verify my Email</button>
                     </Link>
                 ) : (
