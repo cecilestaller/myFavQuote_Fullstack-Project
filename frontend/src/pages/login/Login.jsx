@@ -63,7 +63,7 @@ const Login = ({ onLoginSuccess }) => {
                     <section>
                         <p style={{ color: "green" }}>{successMessage}</p>
 
-                        <Link to={`/dashboard/${userInfo._id}`}>
+                        <Link to={`/dashboard`}>
                             <button className="btn">My Dashboard</button>
                         </Link>
                     </section>

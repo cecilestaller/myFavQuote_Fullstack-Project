@@ -7,6 +7,7 @@ import Register from "./pages/register/Register";
 import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
 import Login from "./pages/login/Login";
 import LoadingWrapper from "./components/LoadingWrapper";
+import QuoteOverview from "./pages/quoteOverview/QuoteOverview";
 
 function App() {
     // states for login and silentRefresh
@@ -18,15 +19,34 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
-                        path="/dashboard/:userId"
+                        path="/dashboard"
                         element={
                             <LoadingWrapper
                                 authorization={authorization}
                                 saveAuthorization={(auth) =>
                                     setAuthorization(auth)
                                 }
+                                userProfileInfo={userProfileInfo}
                             >
                                 <Dashboard
+                                    authorization={authorization}
+                                    userProfileInfo={userProfileInfo}
+                                    onLogout={() => setAuthorization(null)}
+                                />
+                            </LoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/overview"
+                        element={
+                            <LoadingWrapper
+                                authorization={authorization}
+                                saveAuthorization={(auth) =>
+                                    setAuthorization(auth)
+                                }
+                                userProfileInfo={userProfileInfo}
+                            >
+                                <QuoteOverview
                                     authorization={authorization}
                                     userProfileInfo={userProfileInfo}
                                     onLogout={() => setAuthorization(null)}

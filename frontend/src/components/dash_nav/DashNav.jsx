@@ -6,7 +6,7 @@ import LogoutBtn from "../LogoutBtn";
 const DashNav = ({ onLogout }) => {
     return (
         <nav>
-            <NavLink>
+            <NavLink to={"/dashboard"}>
                 <h1>myFavQuotes</h1>
             </NavLink>
 
