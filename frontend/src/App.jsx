@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Register from "./pages/register/Register";
 import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
 import Login from "./pages/login/Login";
+import LoadingWrapper from "./components/LoadingWrapper";
 
 function App() {
     // states for login and silentRefresh
@@ -19,11 +20,18 @@ function App() {
                     <Route
                         path="/dashboard/:userId"
                         element={
-                            <Dashboard
+                            <LoadingWrapper
                                 authorization={authorization}
-                                userProfileInfo={userProfileInfo}
-                                onLogout={() => setAuthorization(null)}
-                            />
+                                saveAuthorization={(auth) =>
+                                    setAuthorization(auth)
+                                }
+                            >
+                                <Dashboard
+                                    authorization={authorization}
+                                    userProfileInfo={userProfileInfo}
+                                    onLogout={() => setAuthorization(null)}
+                                />
+                            </LoadingWrapper>
                         }
                     />
                     <Route path="/register" element={<Register />} />

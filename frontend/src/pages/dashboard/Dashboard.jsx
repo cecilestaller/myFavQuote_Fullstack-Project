@@ -11,7 +11,7 @@ const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
                 <h2 className="main_hl">
                     Hello{" "}
                     <span className="brygada_it">
-                        {userProfileInfo.userName}
+                        {userProfileInfo?.userName}
                     </span>
                 </h2>
                 <article className="menu_wrap">
