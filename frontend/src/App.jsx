@@ -8,6 +8,7 @@ import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
 import Login from "./pages/login/Login";
 import LoadingWrapper from "./components/LoadingWrapper";
 import QuoteOverview from "./pages/quoteOverview/QuoteOverview";
+import AddQuoteForm from "./pages/addNewQuoteForm/AddQuoteForm";
 
 function App() {
     // states for login and silentRefresh
@@ -47,6 +48,24 @@ function App() {
                                 userProfileInfo={userProfileInfo}
                             >
                                 <QuoteOverview
+                                    authorization={authorization}
+                                    userProfileInfo={userProfileInfo}
+                                    onLogout={() => setAuthorization(null)}
+                                />
+                            </LoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/add-new-quote"
+                        element={
+                            <LoadingWrapper
+                                authorization={authorization}
+                                saveAuthorization={(auth) =>
+                                    setAuthorization(auth)
+                                }
+                                userProfileInfo={userProfileInfo}
+                            >
+                                <AddQuoteForm
                                     authorization={authorization}
                                     userProfileInfo={userProfileInfo}
                                     onLogout={() => setAuthorization(null)}

@@ -21,6 +21,15 @@
             }
             input {
                 padding: 4px;
+                &::placeholder {
+                    font-family: "mont";
+                }
+            }
+            textarea {
+                padding: 4px;
+                &::placeholder {
+                    font-family: "mont";
+                }
             }
         }
     }

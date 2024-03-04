@@ -21,7 +21,7 @@ const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
                             <h3>VIEW ALL QUOTES</h3>
                         </div>
                     </Link>
-                    <Link>
+                    <Link to="/add-new-quote">
                         <div className="menuBox addQuote">
                             <h3>ADD NEW QUOTE</h3>
                         </div>
