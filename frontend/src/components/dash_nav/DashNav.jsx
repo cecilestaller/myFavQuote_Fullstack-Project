@@ -16,7 +16,7 @@ const DashNav = ({ onLogout, userProfileInfo }) => {
                 <NavLink>
                     <LogoutBtn onLogout={onLogout} />
                 </NavLink>
-                <NavLink>
+                <NavLink to={"/my-profile"}>
                     <img
                         className="profilePic_circle"
                         src={

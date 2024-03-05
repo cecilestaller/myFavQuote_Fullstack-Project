@@ -70,3 +70,12 @@ export const patchEditProfileCtrl = catchAsync(
     },
     { message: "Could not update User-Profile" }
 );
+
+export const getSingleUserCtrl = catchAsync(
+    async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
+        const result = await UserService.singleUserInfo(authenticatedUserId);
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Could not retrieve User" }
+);

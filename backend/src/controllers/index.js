@@ -5,6 +5,7 @@ import { postLoginUserCtrl } from "./userController.js";
 import { postRefreshTokenCtrl } from "./userController.js";
 import { postLogoutCtrl } from "./userController.js";
 import { patchEditProfileCtrl } from "./userController.js";
+import { getSingleUserCtrl } from "./userController.js";
 
 import { postNewQuoteCtrl } from "./quoteController.js";
 import { getAllQuotesCtrl } from "./quoteController.js";
@@ -26,6 +27,7 @@ export const UserController = {
     postRefreshTokenCtrl,
     postLogoutCtrl,
     patchEditProfileCtrl,
+    getSingleUserCtrl,
 };
 
 export const QuoteController = {

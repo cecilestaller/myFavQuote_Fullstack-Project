@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import { doSilentRefresh, silentRefreshLoop } from "../utils/tokens";
 import { Navigate } from "react-router-dom";
+import { backendUrl } from "../api";
 
-const LoadingWrapper = ({ authorization, saveAuthorization, children }) => {
+const LoadingWrapper = ({
+    authorization,
+    saveAuthorization,
+    children,
+    userProfileInfo,
+    saveUserProfileInfo,
+}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     // console.log({ isLoading, authorization });
@@ -20,6 +27,13 @@ const LoadingWrapper = ({ authorization, saveAuthorization, children }) => {
                 const accessToken = await doSilentRefresh();
                 const authorization = `Bearer ${accessToken}`;
                 saveAuthorization(authorization); // Lifting state up to App.jsx
+
+                const response = await fetch(`${backendUrl}/api/v1/users`, {
+                    headers: { authorization },
+                });
+                const { success, result, error } = await response.json();
+                await saveUserProfileInfo(result);
+
                 setIsLoading(false);
 
                 silentRefreshLoop(accessToken, (newAccessToken) => {

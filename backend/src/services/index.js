@@ -4,6 +4,7 @@ import { verifyEmail } from "./verifyEmail.js";
 import { loginUser } from "./loginUser.js";
 import { refreshToken } from "./refreshToken.js";
 import { editUserProfile } from "./editUserProfile.js";
+import { singleUserInfo } from "./singleUserInfo.js";
 
 import { addNewQuote } from "./addNewQuote.js";
 import { getAllQuotes } from "./getAllQuotes.js";
@@ -22,6 +23,7 @@ export const UserService = {
     loginUser,
     refreshToken,
     editUserProfile,
+    singleUserInfo,
 };
 
 export const QuoteService = {

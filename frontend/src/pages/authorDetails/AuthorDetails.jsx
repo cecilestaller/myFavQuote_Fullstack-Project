@@ -126,7 +126,7 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                                     ? `${backendUrl}/download/${author.authorPicUrl}`
                                     : picDummy
                             }
-                            alt=""
+                            alt={author?.authorName}
                         />
                         <div>
                             <div className="innerBox">
@@ -135,7 +135,7 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                                     className="editPen"
                                     onClick={() => setEdit(!edit)}
                                 >
-                                    🖋️
+                                    ✎
                                 </p>
                             </div>
                             <p>Role: {author?.role}</p>
