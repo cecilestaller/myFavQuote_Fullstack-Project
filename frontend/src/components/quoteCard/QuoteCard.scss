@@ -1,5 +1,24 @@
 a {
-    .quoteCard {
-        background-color: var(--text);
+    .quote_wrap {
+        div {
+            display: flex;
+            justify-content: space-between;
+            .delete {
+                padding: 6px 6px 0 6px;
+                &:hover {
+                    border: 1px solid var(--text);
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
+            }
+            .favorite {
+                padding: 2px 6px 2px 6px;
+                &:hover {
+                    border: 1px solid var(--text);
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
+            }
+        }
     }
 }

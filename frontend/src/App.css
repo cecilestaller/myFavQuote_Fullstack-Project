@@ -57,7 +57,7 @@ a {
     background-color: var(--orange);
     padding: 24px;
     border-radius: 24px;
-    max-width: 500px;
+    width: clamp(225px, 100%, 600px);
     margin: 1vh auto;
     box-shadow: 0px 0px 10px 1px #b67352;
     transition: 0.2s;

@@ -44,14 +44,18 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
                     Quote
                     <span className="brygada_it"> Overview</span>
                 </h2>
-
+                <h3>Total Amount of Quotes yet: {allQuotes?.length}</h3>
                 <section className="quoteCard_wrap">
                     {errorMessage ? (
                         <p>{errorMessage}</p>
                     ) : (
                         allQuotes &&
                         allQuotes.map((quote) => (
-                            <QuoteCard quote={quote} key={quote._id} />
+                            <QuoteCard
+                                quote={quote}
+                                key={quote._id}
+                                authorization={authorization}
+                            />
                         ))
                     )}
                 </section>
