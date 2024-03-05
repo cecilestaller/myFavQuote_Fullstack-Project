@@ -6,11 +6,11 @@ import "./QuoteOverview.scss";
 import { useNavigate } from "react-router-dom";
 
 const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
-    console.log(userProfileInfo);
-    console.log(authorization);
+    // console.log(userProfileInfo);
+    // console.log(authorization);
     const navigate = useNavigate();
 
-    const [allQuotes, setAllQuotes] = useState();
+    const [allQuotes, setAllQuotes] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
@@ -34,22 +34,24 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
     console.log(allQuotes);
     return (
         <>
-            <DashNav onLogout={onLogout} />
+            <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <section className="content_wrapper">
-                <div>
-                    <h4 onClick={() => navigate(-1)}>Back</h4>
-                    <h2 className="main_hl">
-                        Quote
-                        <span className="brygada_it"> Overview</span>
-                    </h2>
-                </div>
+                <h4 className="back" onClick={() => navigate(-1)}>
+                    {" "}
+                    ◁ Back
+                </h4>
+                <h2 className="main_hl">
+                    Quote
+                    <span className="brygada_it"> Overview</span>
+                </h2>
+
                 <section className="quoteCard_wrap">
                     {errorMessage ? (
                         <p>{errorMessage}</p>
                     ) : (
                         allQuotes &&
                         allQuotes.map((quote) => (
-                            <QuoteCard quote={quote} key={quote.id} />
+                            <QuoteCard quote={quote} key={quote._id} />
                         ))
                     )}
                 </section>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DashNav from "../../components/dash_nav/DashNav";
 import { backendUrl } from "../../api";
+import { useNavigate } from "react-router-dom";
 
 const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
     const [quoteText, setQuoteText] = useState("");
@@ -9,6 +10,7 @@ const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
     const [context, setContext] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+    const navigate = useNavigate();
 
     async function addQuote(e) {
         e.preventDefault();
@@ -41,8 +43,12 @@ const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
 
     return (
         <>
-            <DashNav onLogout={onLogout} />
+            <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <section className="content_wrapper">
+                <h4 className="back" onClick={() => navigate(-1)}>
+                    {" "}
+                    ◁ Back
+                </h4>
                 <h2 className="main_hl">
                     Add a new <span className="brygada_it">Quote</span>
                 </h2>

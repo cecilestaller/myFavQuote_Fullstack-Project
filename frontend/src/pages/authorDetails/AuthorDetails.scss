@@ -1,0 +1,46 @@
+.content_wrapper {
+    article {
+        .authorCard_wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            background-color: #ecb15944;
+            color: var(--text);
+            padding: 24px;
+            border-radius: 24px;
+            transition: 0.3s;
+            width: clamp(300px, 50%, 500px);
+            margin: 2vh auto;
+
+            .authorPic {
+                max-width: 90px;
+                border-radius: 10%;
+                aspect-ratio: 1 / 1;
+            }
+            div {
+                text-align: left;
+                flex-basis: 75%;
+                .innerBox {
+                    display: flex;
+                    justify-content: space-between;
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+                    .editPen {
+                        padding: 2px 6px;
+                        &:hover {
+                            border: 1px solid var(--text);
+                            cursor: pointer;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+        }
+        .editForms_wrap {
+            .form_wrap {
+                margin-bottom: 2vh;
+            }
+        }
+    }
+}

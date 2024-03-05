@@ -9,6 +9,8 @@ import Login from "./pages/login/Login";
 import LoadingWrapper from "./components/LoadingWrapper";
 import QuoteOverview from "./pages/quoteOverview/QuoteOverview";
 import AddQuoteForm from "./pages/addNewQuoteForm/AddQuoteForm";
+import AuthorList from "./pages/authorList/AuthorList";
+import AuthorDetails from "./pages/authorDetails/AuthorDetails";
 
 function App() {
     // states for login and silentRefresh
@@ -66,6 +68,42 @@ function App() {
                                 userProfileInfo={userProfileInfo}
                             >
                                 <AddQuoteForm
+                                    authorization={authorization}
+                                    userProfileInfo={userProfileInfo}
+                                    onLogout={() => setAuthorization(null)}
+                                />
+                            </LoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/authorlist"
+                        element={
+                            <LoadingWrapper
+                                authorization={authorization}
+                                saveAuthorization={(auth) =>
+                                    setAuthorization(auth)
+                                }
+                                userProfileInfo={userProfileInfo}
+                            >
+                                <AuthorList
+                                    authorization={authorization}
+                                    userProfileInfo={userProfileInfo}
+                                    onLogout={() => setAuthorization(null)}
+                                />
+                            </LoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/author-details/:authorId"
+                        element={
+                            <LoadingWrapper
+                                authorization={authorization}
+                                saveAuthorization={(auth) =>
+                                    setAuthorization(auth)
+                                }
+                                userProfileInfo={userProfileInfo}
+                            >
+                                <AuthorDetails
                                     authorization={authorization}
                                     userProfileInfo={userProfileInfo}
                                     onLogout={() => setAuthorization(null)}

@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 const LoadingWrapper = ({ authorization, saveAuthorization, children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
-    console.log({ isLoading, authorization });
+    // console.log({ isLoading, authorization });
 
     useEffect(() => {
         async function tryRefreshToken() {

@@ -2,8 +2,10 @@ import { NavLink } from "react-router-dom";
 import "./DashNav.scss";
 import picDummy from "./../../assets/img/picDummy.png";
 import LogoutBtn from "../LogoutBtn";
+import { backendUrl } from "../../api";
 
-const DashNav = ({ onLogout }) => {
+const DashNav = ({ onLogout, userProfileInfo }) => {
+    // console.log(userProfileInfo);
     return (
         <nav>
             <NavLink to={"/dashboard"}>
@@ -15,7 +17,15 @@ const DashNav = ({ onLogout }) => {
                     <LogoutBtn onLogout={onLogout} />
                 </NavLink>
                 <NavLink>
-                    <img className="profilePic_circle" src={picDummy} alt="" />
+                    <img
+                        className="profilePic_circle"
+                        src={
+                            userProfileInfo?.profilePicUrl
+                                ? `${backendUrl}/download/${userProfileInfo.profilePicUrl}`
+                                : picDummy
+                        }
+                        alt=""
+                    />
                     <p>My Profile</p>
                 </NavLink>
             </div>

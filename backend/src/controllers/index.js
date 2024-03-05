@@ -12,6 +12,7 @@ import { removeQuoteCtrl } from "./quoteController.js";
 import { getQuoteDetailsCtrl } from "./quoteController.js";
 import { patchEditQuoteCtrl } from "./quoteController.js";
 import { patchToggleFavCtrl } from "./quoteController.js";
+import { getAuthorQuotesCtrl } from "./quoteController.js";
 
 import { patchEditAuthorCtrl } from "./authorController.js";
 import { getAllAuthorsCtrl } from "./authorController.js";
@@ -34,6 +35,7 @@ export const QuoteController = {
     getQuoteDetailsCtrl,
     patchEditQuoteCtrl,
     patchToggleFavCtrl,
+    getAuthorQuotesCtrl,
 };
 
 export const AuthorController = {

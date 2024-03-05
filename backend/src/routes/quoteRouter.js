@@ -9,8 +9,9 @@ export const quoteRouter = express
     .delete("/:quoteId", doJwtAuth, QuoteController.removeQuoteCtrl)
     .get("/details/:quoteId", doJwtAuth, QuoteController.getQuoteDetailsCtrl)
     .patch("/edit/:quoteId", doJwtAuth, QuoteController.patchEditQuoteCtrl)
-    .patch(
-        "/toggleFav/:quoteId",
+    .patch("/toggleFav/:quoteId", doJwtAuth, QuoteController.patchToggleFavCtrl)
+    .get(
+        "/authorQuotes/:authorId",
         doJwtAuth,
-        QuoteController.patchToggleFavCtrl
+        QuoteController.getAuthorQuotesCtrl
     );

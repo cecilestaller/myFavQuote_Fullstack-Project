@@ -11,6 +11,7 @@ import { deleteOneQuote } from "./deleteOneQuote.js";
 import { getQuoteDetails } from "./getQuoteDetails.js";
 import { editQuote } from "./editQuote.js";
 import { toggleFav } from "./toggleFav.js";
+import { getAllQuotesOfAuthor } from "./getAllQuotesOfAuthor.js";
 
 import { editAuthor } from "./editAuthor.js";
 import { getAllAuthors } from "./getAllAuthors.js";
@@ -30,6 +31,7 @@ export const QuoteService = {
     getQuoteDetails,
     editQuote,
     toggleFav,
+    getAllQuotesOfAuthor,
 };
 
 export const AuthorService = {

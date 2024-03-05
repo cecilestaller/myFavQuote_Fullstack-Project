@@ -3,10 +3,9 @@ import DashNav from "../../components/dash_nav/DashNav";
 import "./Dashboard.scss";
 
 const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
-    const { userId } = useParams();
     return (
         <>
-            <DashNav onLogout={onLogout} />
+            <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <main className="content_wrapper">
                 <h2 className="main_hl">
                     Hello{" "}
@@ -26,7 +25,7 @@ const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
                             <h3>ADD NEW QUOTE</h3>
                         </div>
                     </Link>
-                    <Link>
+                    <Link to="/authorlist">
                         <div className="menuBox authorList">
                             <h3>AUTHOR-LIST</h3>
                         </div>

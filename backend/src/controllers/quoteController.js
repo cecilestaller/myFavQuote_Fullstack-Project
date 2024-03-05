@@ -76,3 +76,16 @@ export const patchToggleFavCtrl = catchAsync(
     },
     { message: "Quote-Update failed" }
 );
+
+export const getAuthorQuotesCtrl = catchAsync(
+    async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
+        const authorId = req.params.authorId;
+        const result = await QuoteService.getAllQuotesOfAuthor(
+            authenticatedUserId,
+            authorId
+        );
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Could not retrieve Quotes" }
+);

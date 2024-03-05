@@ -1,4 +1,14 @@
 .content_wrapper {
+    .back {
+        text-align: left;
+        transition: 0.2s;
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            transform: scale(1.005);
+        }
+    }
+
     .quoteCard_wrap {
         padding: 24px;
         display: grid;
