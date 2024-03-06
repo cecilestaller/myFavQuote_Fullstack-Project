@@ -8,7 +8,8 @@ export async function getAllQuotesOfAuthor(authenticatedUserId, authorId) {
         authorId: foundAuthor._id,
         userId: authenticatedUserId,
     });
-    if (!foundQuotes) throw new Error("No Quotes with authorId exist");
+    if (foundQuotes.length === 0)
+        throw new Error(`No Quotes with authorId: ${authorId} exist`);
 
     return { author: foundAuthor, quotes: foundQuotes };
 }

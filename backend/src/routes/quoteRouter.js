@@ -14,4 +14,5 @@ export const quoteRouter = express
         "/authorQuotes/:authorId",
         doJwtAuth,
         QuoteController.getAuthorQuotesCtrl
-    );
+    )
+    .get("/favorites", doJwtAuth, QuoteController.getFavQuotesCtrl);

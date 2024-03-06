@@ -89,3 +89,12 @@ export const getAuthorQuotesCtrl = catchAsync(
     },
     { message: "Could not retrieve Quotes" }
 );
+
+export const getFavQuotesCtrl = catchAsync(
+    async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
+        const result = await QuoteService.getFavQuotes(authenticatedUserId);
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Could not retrieve favorite Quotes" }
+);
