@@ -2,24 +2,44 @@
     .profile_wrap {
         max-width: 80%;
         margin: 0 auto;
-        .pic_wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2vh;
-            .profilePic {
-                width: clamp(225px, 90%, 350px);
-                border-radius: 10%;
+        .data_wrap {
+            .pic_wrap {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2vh;
+                .profilePic {
+                    width: clamp(225px, 90%, 350px);
+                    border-radius: 10%;
+                }
+                .editPen {
+                    font-size: 2rem;
+                    transition: 0.2s;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
-            .editPen {
-                font-size: 2rem;
+            .info_wrap {
+                max-width: 400px;
+                margin: 0 auto;
+                font-size: 1.25rem;
+                display: flex;
+                justify-content: space-around;
             }
         }
-        .info_wrap {
-            max-width: 400px;
-            margin: 0 auto;
-            font-size: 1.25rem;
-            display: flex;
-            justify-content: space-around;
+    }
+    .profile_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+        .editForms_wrap {
+            .form_wrap {
+                margin-bottom: 2vh;
+            }
         }
     }
 }

@@ -95,10 +95,10 @@ a {
     border-radius: 7px;
     transition: 0.3s;
     text-shadow: 1px 1px rgb(110, 110, 110);
+}
 
-    &:hover {
-        background-color: var(--brown);
-        cursor: pointer;
-        scale: 1.0125;
-    }
+.btn:hover {
+    background-color: var(--brown);
+    cursor: pointer;
+    scale: 1.0125;
 }

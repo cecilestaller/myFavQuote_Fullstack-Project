@@ -39,11 +39,6 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
         fetchAllQuotesOfAuthor();
     }, []);
 
-    console.log("Author: ", author);
-    console.log("Quotes: ", allAuthorQuotes);
-    console.log(edit);
-    console.log("Selected Role: ", role);
-
     function editAuthorPic(e) {
         e.preventDefault();
 
