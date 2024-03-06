@@ -30,7 +30,7 @@ const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
                             <h3>AUTHOR-LIST</h3>
                         </div>
                     </Link>
-                    <Link>
+                    <Link to="/favorites">
                         <div className="menuBox favQuotes">
                             <h3>MY FAVORITES ♥️</h3>
                         </div>

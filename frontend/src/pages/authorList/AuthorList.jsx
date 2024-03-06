@@ -5,6 +5,7 @@ import { backendUrl } from "../../api";
 import AuthorCard from "../../components/authorCard/AuthorCard";
 import "./AuthorList.scss";
 import { useNavigate } from "react-router-dom";
+import backArrow from "./../../assets/img/backArrow.png";
 
 const AuthorList = ({ onLogout, authorization, userProfileInfo }) => {
     const [allAuthors, setAllAuthors] = useState([]);
@@ -30,15 +31,16 @@ const AuthorList = ({ onLogout, authorization, userProfileInfo }) => {
         fetchAllAuthors();
     }, []);
 
-    console.log(allAuthors);
     return (
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <section className="content_wrapper">
-                <h4 className="back" onClick={() => navigate(-1)}>
-                    {" "}
-                    ◁ Back
-                </h4>
+                <img
+                    className="back"
+                    onClick={() => navigate(-1)}
+                    src={backArrow}
+                    alt="backArrow"
+                />
                 <h2 className="main_hl">
                     All my <span className="brygada_it">Authors</span>
                 </h2>

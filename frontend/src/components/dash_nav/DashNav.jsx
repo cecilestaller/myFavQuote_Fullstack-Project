@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./DashNav.scss";
 import picDummy from "./../../assets/img/picDummy.png";
-import LogoutBtn from "../LogoutBtn";
+import LogoutBtn from "../logoutBtn/LogoutBtn";
 import { backendUrl } from "../../api";
 
 const DashNav = ({ onLogout, userProfileInfo }) => {

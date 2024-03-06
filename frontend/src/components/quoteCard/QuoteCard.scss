@@ -5,19 +5,17 @@ a {
             justify-content: space-between;
             align-items: center;
             .delete {
-                padding: 2px 6px 2px 6px;
+                width: 36px;
                 &:hover {
-                    background-color: var(--orange);
                     cursor: pointer;
-                    border-radius: 4px;
                 }
             }
             .favorite {
-                padding: 2px 6px 2px 6px;
                 &:hover {
-                    background-color: var(--orange);
                     cursor: pointer;
-                    border-radius: 4px;
+                }
+                .heart {
+                    width: 28px;
                 }
             }
         }

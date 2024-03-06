@@ -1,11 +1,12 @@
 .content_wrapper {
     .back {
         text-align: left;
-        transition: 0.2s;
+        width: 40px;
+        @media (max-width: 575px) {
+            width: 32px;
+        }
         &:hover {
             cursor: pointer;
-            text-decoration: underline;
-            transform: scale(1.005);
         }
     }
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import DashNav from "../../components/dash_nav/DashNav";
 import { backendUrl } from "../../api";
 import { useNavigate } from "react-router-dom";
+import backArrow from "./../../assets/img/backArrow.png";
 
 const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
     const [quoteText, setQuoteText] = useState("");
@@ -45,10 +46,12 @@ const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <section className="content_wrapper">
-                <h4 className="back" onClick={() => navigate(-1)}>
-                    {" "}
-                    ◁ Back
-                </h4>
+                <img
+                    className="back"
+                    onClick={() => navigate(-1)}
+                    src={backArrow}
+                    alt="backArrow"
+                />
                 <h2 className="main_hl">
                     Add a new <span className="brygada_it">Quote</span>
                 </h2>

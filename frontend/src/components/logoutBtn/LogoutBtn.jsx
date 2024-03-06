@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { backendUrl } from "../api";
+import { backendUrl } from "../../api";
 import "./LogoutBtn.scss";
 
 const LogoutBtn = ({ onLogout }) => {

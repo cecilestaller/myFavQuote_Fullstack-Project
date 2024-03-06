@@ -5,6 +5,7 @@ import { backendUrl } from "../../api";
 import picDummy from "./../../assets/img/picDummy.png";
 import "./AuthorDetails.scss";
 import QuoteCard from "../../components/quoteCard/QuoteCard";
+import backArrow from "./../../assets/img/backArrow.png";
 
 const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
     const { authorId } = useParams();
@@ -104,10 +105,12 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <section className="content_wrapper">
-                <h4 className="back" onClick={() => navigate(-1)}>
-                    {" "}
-                    ◁ Back
-                </h4>
+                <img
+                    className="back"
+                    onClick={() => navigate(-1)}
+                    src={backArrow}
+                    alt="backArrow"
+                />
                 <h2 className="main_hl">
                     Details about Author
                     <span className="brygada_it"> {author?.authorName}</span>

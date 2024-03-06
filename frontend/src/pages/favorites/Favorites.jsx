@@ -1,37 +1,33 @@
-import { useEffect, useState } from "react";
-import DashNav from "../../components/dash_nav/DashNav";
-import { backendUrl } from "../../api/index.js";
-import QuoteCard from "../../components/quoteCard/QuoteCard";
-import "./QuoteOverview.scss";
 import { useNavigate } from "react-router-dom";
+import DashNav from "../../components/dash_nav/DashNav";
+import { useEffect, useState } from "react";
+import { backendUrl } from "../../api";
+import QuoteCard from "../../components/quoteCard/QuoteCard";
 import backArrow from "./../../assets/img/backArrow.png";
 
-const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
-    // console.log(userProfileInfo);
-    // console.log(authorization);
+const Favorites = ({ authorization, userProfileInfo, onLogout }) => {
     const navigate = useNavigate();
-
-    const [allQuotes, setAllQuotes] = useState([]);
+    const [allFavQuotes, setAllFavQuotes] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        async function fetchAllQuotes() {
+        async function fetchAllFavorites() {
             try {
-                const response = await fetch(backendUrl + "/api/v1/quotes", {
-                    headers: { authorization },
-                });
-                const { success, result, error } = await response.json();
-                if (!success)
-                    setErrorMessage(
-                        error.message ||
-                            "You have no Quotes added yet, please add Quotes first"
-                    );
-                return setAllQuotes(result);
+                const response = await fetch(
+                    `${backendUrl}/api/v1/quotes/favorites`,
+                    {
+                        headers: { authorization },
+                    }
+                );
+                const { success, result, error, message } =
+                    await response.json();
+                if (!success) setErrorMessage(error.message);
+                return setAllFavQuotes(result);
             } catch (error) {
                 console.log(error);
             }
         }
-        fetchAllQuotes();
+        fetchAllFavorites();
     }, []);
 
     return (
@@ -45,16 +41,16 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
                     alt="backArrow"
                 />
                 <h2 className="main_hl">
-                    Quote
-                    <span className="brygada_it"> Overview</span>
+                    Quotes marked as
+                    <span className="brygada_it"> Favorites</span>
                 </h2>
-                <h3>Total Amount of Quotes yet: {allQuotes?.length}</h3>
+                <h3>Total Amount of Favorite Quotes: {allFavQuotes?.length}</h3>
                 <section className="quoteCard_wrap">
                     {errorMessage ? (
                         <p>{errorMessage}</p>
                     ) : (
-                        allQuotes?.length > 0 &&
-                        allQuotes.map((quote) => (
+                        allFavQuotes?.length > 0 &&
+                        allFavQuotes.map((quote) => (
                             <QuoteCard
                                 quote={quote}
                                 key={quote._id}
@@ -68,4 +64,4 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
     );
 };
 
-export default QuoteOverview;
+export default Favorites;

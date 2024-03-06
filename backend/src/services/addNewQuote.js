@@ -34,7 +34,10 @@ export async function addNewQuote(
 
 async function checkIfAuthorExistsOrCreateNew(author, authenticatedUserId) {
     // check if author already exists
-    const foundAuthor = await Author.findOne({ authorName: author });
+    const foundAuthor = await Author.findOne({
+        authorName: author,
+        userId: authenticatedUserId,
+    });
 
     if (foundAuthor) {
         return foundAuthor;

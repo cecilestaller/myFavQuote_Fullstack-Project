@@ -12,6 +12,7 @@ import AddQuoteForm from "./pages/addNewQuoteForm/AddQuoteForm";
 import AuthorList from "./pages/authorList/AuthorList";
 import AuthorDetails from "./pages/authorDetails/AuthorDetails";
 import Profile from "./pages/profile/Profile";
+import Favorites from "./pages/favorites/Favorites";
 
 function App() {
     // states for login and silentRefresh
@@ -141,6 +142,27 @@ function App() {
                                 }
                             >
                                 <AuthorDetails
+                                    authorization={authorization}
+                                    userProfileInfo={userProfileInfo}
+                                    onLogout={() => setAuthorization(null)}
+                                />
+                            </LoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/favorites"
+                        element={
+                            <LoadingWrapper
+                                authorization={authorization}
+                                saveAuthorization={(auth) =>
+                                    setAuthorization(auth)
+                                }
+                                userProfileInfo={userProfileInfo}
+                                saveUserProfileInfo={(info) =>
+                                    setUserProfileInfo(info)
+                                }
+                            >
+                                <Favorites
                                     authorization={authorization}
                                     userProfileInfo={userProfileInfo}
                                     onLogout={() => setAuthorization(null)}
