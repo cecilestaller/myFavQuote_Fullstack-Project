@@ -3,10 +3,11 @@ a {
         div {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             .delete {
-                padding: 6px 6px 0 6px;
+                padding: 2px 6px 2px 6px;
                 &:hover {
-                    border: 1px solid var(--text);
+                    background-color: var(--orange);
                     cursor: pointer;
                     border-radius: 4px;
                 }
@@ -14,7 +15,7 @@ a {
             .favorite {
                 padding: 2px 6px 2px 6px;
                 &:hover {
-                    border: 1px solid var(--text);
+                    background-color: var(--orange);
                     cursor: pointer;
                     border-radius: 4px;
                 }

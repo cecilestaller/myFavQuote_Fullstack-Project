@@ -1,4 +1,10 @@
 .content_wrapper {
+    .main_hl {
+        @media (max-width: 575px) {
+            font-size: 1.6rem;
+        }
+    }
+
     .menu_wrap {
         max-width: 80%;
         margin: 0 auto;

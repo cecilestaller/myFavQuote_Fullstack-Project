@@ -202,7 +202,11 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                         ) : (
                             allAuthorQuotes &&
                             allAuthorQuotes.map((quote) => (
-                                <QuoteCard quote={quote} key={quote._id} />
+                                <QuoteCard
+                                    quote={quote}
+                                    key={quote._id}
+                                    authorization={authorization}
+                                />
                             ))
                         )}
                     </section>

@@ -1,0 +1,6 @@
+.logout_btn {
+    background-color: var(--orange);
+    @media (max-width: 575px) {
+        font-size: 0.75rem;
+    }
+}

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { backendUrl } from "../api";
+import "./LogoutBtn.scss";
 
 const LogoutBtn = ({ onLogout }) => {
     const navigate = useNavigate();
@@ -16,8 +17,8 @@ const LogoutBtn = ({ onLogout }) => {
     }
     return (
         <button
-            className="btn"
-            style={{ backgroundColor: "#ecb159" }}
+            className="btn logout_btn"
+            // style={{ backgroundColor: "#ecb159" }}
             onClick={doLogout}
         >
             Logout

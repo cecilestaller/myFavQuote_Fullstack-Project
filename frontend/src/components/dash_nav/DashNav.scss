@@ -16,6 +16,9 @@ nav {
         h1 {
             font-family: "brygada_it";
             font-size: 1.5rem;
+            @media (max-width: 575px) {
+                font-size: 1.25rem;
+            }
         }
     }
 
@@ -25,6 +28,10 @@ nav {
         gap: 36px;
         font-weight: 500;
         font-size: 1.125rem;
+        @media (max-width: 575px) {
+            font-size: 1rem;
+            gap: 12px;
+        }
         font-family: "mont";
         a {
             display: flex;
@@ -40,6 +47,7 @@ nav {
                 width: 32px;
                 aspect-ratio: 1 / 1;
                 border-radius: 50%;
+                object-fit: cover;
             }
         }
     }

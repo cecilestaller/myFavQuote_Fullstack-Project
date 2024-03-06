@@ -43,15 +43,15 @@ const QuoteCard = ({ quote, authorization }) => {
         <>
             <Link>
                 <article className="quote_wrap">
-                    <p className="quote_text">"{singleQuote.quoteText}"</p>
-                    <h4 className="author">{singleQuote.author}</h4>
-                    <p className="quote_info">{singleQuote.context}</p>
+                    <p className="quote_text">"{singleQuote?.quoteText}"</p>
+                    <h4 className="author">{singleQuote?.author}</h4>
+                    <p className="quote_info">{singleQuote?.context}</p>
                     <div>
                         <p className="delete" onClick={deleteQuote}>
                             🗑️
                         </p>
                         <div className="favorite" onClick={toggleFavQuote}>
-                            {singleQuote.isFavorite ? <p>♥️</p> : <p>🤍</p>}
+                            {singleQuote?.isFavorite ? <p>♥️</p> : <p>🤍</p>}
                         </div>
                     </div>
                 </article>
