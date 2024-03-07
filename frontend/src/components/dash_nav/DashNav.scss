@@ -1,10 +1,12 @@
 nav {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #ecb15944;
-
+    position: fixed;
+    top: 0;
     color: var(--text);
     a {
         .active {

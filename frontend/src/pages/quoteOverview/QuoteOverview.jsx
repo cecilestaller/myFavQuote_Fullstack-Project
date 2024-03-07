@@ -5,10 +5,9 @@ import QuoteCard from "../../components/quoteCard/QuoteCard";
 import "./QuoteOverview.scss";
 import { useNavigate } from "react-router-dom";
 import backArrow from "./../../assets/img/backArrow.png";
+import Footer from "../../components/footer/Footer";
 
 const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
-    // console.log(userProfileInfo);
-    // console.log(authorization);
     const navigate = useNavigate();
 
     const [allQuotes, setAllQuotes] = useState([]);
@@ -64,6 +63,7 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
                     )}
                 </section>
             </section>
+            <Footer />
         </>
     );
 };

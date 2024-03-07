@@ -1,0 +1,31 @@
+footer {
+    // height: 80px;
+    position: fixed;
+    bottom: 0;
+    background-color: #ecb15944;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 24px;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        .copy {
+            height: 16px;
+        }
+        .logo_text {
+            font-family: "brygada_it";
+            font-size: 0.9rem;
+        }
+    }
+    p {
+        font-family: "mont";
+        font-size: 0.8rem;
+        .icon {
+            text-decoration: underline;
+        }
+    }
+}

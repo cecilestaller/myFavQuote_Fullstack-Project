@@ -1,4 +1,5 @@
 import NinjaQuote from "../../components/NinjaQuote";
+import Footer from "../../components/footer/Footer";
 import Nav from "../../components/nav/Nav";
 import "./Home.scss";
 
@@ -24,6 +25,7 @@ const Home = () => {
                 </p>
                 <NinjaQuote />
             </main>
+            <Footer />
         </>
     );
 };

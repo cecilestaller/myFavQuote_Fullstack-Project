@@ -6,6 +6,7 @@ import AuthorCard from "../../components/authorCard/AuthorCard";
 import "./AuthorList.scss";
 import { useNavigate } from "react-router-dom";
 import backArrow from "./../../assets/img/backArrow.png";
+import Footer from "../../components/footer/Footer";
 
 const AuthorList = ({ onLogout, authorization, userProfileInfo }) => {
     const [allAuthors, setAllAuthors] = useState([]);
@@ -64,6 +65,7 @@ const AuthorList = ({ onLogout, authorization, userProfileInfo }) => {
                     )}
                 </section>
             </section>
+            <Footer />
         </>
     );
 };

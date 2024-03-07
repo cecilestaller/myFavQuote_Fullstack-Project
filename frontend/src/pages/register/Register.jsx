@@ -3,6 +3,7 @@ import "./Register.scss";
 import Nav from "../../components/nav/Nav";
 import { Link } from "react-router-dom";
 import { backendUrl } from "../../api/index.js";
+import Footer from "../../components/footer/Footer";
 
 const Register = () => {
     const [userName, setUserName] = useState("");
@@ -135,6 +136,7 @@ const Register = () => {
                     </section>
                 )}
             </section>
+            <Footer />
         </>
     );
 };

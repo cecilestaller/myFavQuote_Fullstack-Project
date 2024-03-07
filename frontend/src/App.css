@@ -43,6 +43,7 @@ a {
     color: var(--text);
     padding: 3%;
     padding-bottom: 70vh;
+    padding-top: 100px;
     font-family: "mont";
     text-align: center;
 }

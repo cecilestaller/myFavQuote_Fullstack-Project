@@ -3,6 +3,7 @@ import Nav from "../../components/nav/Nav";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { backendUrl } from "../../api/index";
+import Footer from "../../components/footer/Footer";
 
 const VerifyEmail = () => {
     const [sixDigitCode, setSixDigitCode] = useState("");
@@ -90,6 +91,7 @@ const VerifyEmail = () => {
                     </section>
                 )}
             </section>
+            <Footer />
         </>
     );
 };

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { backendUrl } from "../../api";
 import QuoteCard from "../../components/quoteCard/QuoteCard";
 import backArrow from "./../../assets/img/backArrow.png";
+import Footer from "../../components/footer/Footer";
 
 const Favorites = ({ authorization, userProfileInfo, onLogout }) => {
     const navigate = useNavigate();
@@ -60,6 +61,7 @@ const Favorites = ({ authorization, userProfileInfo, onLogout }) => {
                     )}
                 </section>
             </section>
+            <Footer />
         </>
     );
 };

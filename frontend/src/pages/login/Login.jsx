@@ -3,6 +3,7 @@ import { backendUrl } from "../../api/index.js";
 import { useState } from "react";
 import { silentRefreshLoop } from "../../utils/tokens.js";
 import { Link } from "react-router-dom";
+import Footer from "../../components/footer/Footer";
 
 const Login = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState("");
@@ -108,6 +109,7 @@ const Login = ({ onLoginSuccess }) => {
                     </section>
                 )}
             </section>
+            <Footer />
         </>
     );
 };

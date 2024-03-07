@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import DashNav from "../../components/dash_nav/DashNav";
 import "./Dashboard.scss";
+import Footer from "../../components/footer/Footer";
 
 const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
     return (
@@ -37,6 +38,7 @@ const Dashboard = ({ authorization, userProfileInfo, onLogout }) => {
                     </Link>
                 </article>
             </main>
+            <Footer />
         </>
     );
 };

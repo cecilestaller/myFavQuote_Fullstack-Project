@@ -7,6 +7,7 @@ import "./AuthorDetails.scss";
 import QuoteCard from "../../components/quoteCard/QuoteCard";
 import backArrow from "./../../assets/img/backArrow.png";
 import editPen from "./../../assets/img/editPen.png";
+import Footer from "../../components/footer/Footer";
 
 const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
     const { authorId } = useParams();
@@ -210,6 +211,7 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                     </section>
                 </article>
             </section>
+            <Footer />
         </>
     );
 };

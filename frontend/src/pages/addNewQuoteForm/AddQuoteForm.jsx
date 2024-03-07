@@ -3,6 +3,7 @@ import DashNav from "../../components/dash_nav/DashNav";
 import { backendUrl } from "../../api";
 import { useNavigate } from "react-router-dom";
 import backArrow from "./../../assets/img/backArrow.png";
+import Footer from "../../components/footer/Footer";
 
 const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
     const [quoteText, setQuoteText] = useState("");
@@ -30,7 +31,7 @@ const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
                 body: JSON.stringify({ quoteText, author, context, saidAt }),
             });
             const { success, result, error } = await response.json();
-            console.log(result);
+            // console.log(result);
             setErrorMessage("");
             setSuccessMessage("Quote added successfully :)");
             setQuoteText("");
@@ -119,6 +120,7 @@ const AddQuoteForm = ({ authorization, userProfileInfo, onLogout }) => {
                 <p style={{ color: "red" }}>{errorMessage}</p>
                 <p style={{ color: "green" }}>{successMessage}</p>
             </section>
+            <Footer />
         </>
     );
 };

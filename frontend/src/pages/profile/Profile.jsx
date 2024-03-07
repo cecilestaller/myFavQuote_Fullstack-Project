@@ -6,6 +6,7 @@ import "./Profile.scss";
 import { useState } from "react";
 import backArrow from "./../../assets/img/backArrow.png";
 import editPen from "./../../assets/img/editPen.png";
+import Footer from "../../components/footer/Footer";
 
 const Profile = ({ onLogout, authorization, userProfileInfo }) => {
     const navigate = useNavigate();
@@ -170,6 +171,7 @@ const Profile = ({ onLogout, authorization, userProfileInfo }) => {
                     )}
                 </section>
             </section>
+            <Footer />
         </>
     );
 };
