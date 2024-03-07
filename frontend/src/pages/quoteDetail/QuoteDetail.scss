@@ -1,0 +1,20 @@
+.content_wrapper {
+    .editQuote {
+        .editPen {
+            height: 44px;
+            padding: 4px;
+            margin: 0 0 0 auto;
+            &:hover {
+                background-color: #ecb15944;
+                border-radius: 25%;
+                cursor: pointer;
+            }
+        }
+    }
+    .author_wrapper {
+        margin-top: 10vh;
+        width: 45%;
+        text-align: left;
+        padding-inline: 5%;
+    }
+}

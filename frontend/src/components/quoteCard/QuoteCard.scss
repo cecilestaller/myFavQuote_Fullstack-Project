@@ -1,22 +1,21 @@
-a {
-    .quote_wrap {
-        div {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .delete {
-                width: 36px;
-                &:hover {
-                    cursor: pointer;
-                }
+.quote_wrap {
+    height: fit-content;
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .delete {
+            width: 36px;
+            &:hover {
+                cursor: pointer;
             }
-            .favorite {
-                &:hover {
-                    cursor: pointer;
-                }
-                .heart {
-                    width: 28px;
-                }
+        }
+        .favorite {
+            &:hover {
+                cursor: pointer;
+            }
+            .heart {
+                width: 28px;
             }
         }
     }
