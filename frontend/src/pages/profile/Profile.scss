@@ -12,9 +12,11 @@
                     border-radius: 10%;
                 }
                 .editPen {
-                    font-size: 2rem;
-                    transition: 0.2s;
+                    height: 44px;
+                    padding: 4px;
                     &:hover {
+                        background-color: #ecb15944;
+                        border-radius: 25%;
                         cursor: pointer;
                     }
                 }
@@ -39,6 +41,9 @@
         .editForms_wrap {
             .form_wrap {
                 margin-bottom: 2vh;
+                @media (max-width: 575px) {
+                    max-width: 300px;
+                }
             }
         }
     }

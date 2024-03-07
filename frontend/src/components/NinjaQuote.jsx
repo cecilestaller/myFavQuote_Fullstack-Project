@@ -27,7 +27,7 @@ const NinjaQuote = () => {
     console.log(zenQuoteData);
     return (
         <>
-            <section>
+            <section style={{ padding: "5%" }}>
                 {zenQuoteData?.map((singleQuote, index) => {
                     return (
                         <article key={index} className="quote_wrap">

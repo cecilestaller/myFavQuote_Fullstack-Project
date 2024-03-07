@@ -6,6 +6,7 @@ import picDummy from "./../../assets/img/picDummy.png";
 import "./AuthorDetails.scss";
 import QuoteCard from "../../components/quoteCard/QuoteCard";
 import backArrow from "./../../assets/img/backArrow.png";
+import editPen from "./../../assets/img/editPen.png";
 
 const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
     const { authorId } = useParams();
@@ -100,7 +101,6 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
         }
     }
 
-    console.log(role);
     return (
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
@@ -112,7 +112,7 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                     alt="backArrow"
                 />
                 <h2 className="main_hl">
-                    Details about Author
+                    Details about
                     <span className="brygada_it"> {author?.authorName}</span>
                 </h2>
                 <article>
@@ -129,12 +129,12 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                         <div>
                             <div className="innerBox">
                                 <h3>{author?.authorName}</h3>
-                                <p
+                                <img
+                                    src={editPen}
+                                    alt="editPen"
                                     className="editPen"
                                     onClick={() => setEdit(!edit)}
-                                >
-                                    ✎
-                                </p>
+                                />
                             </div>
                             <p>Role: {author?.role}</p>
                             <p>Amount of Quotes: {allAuthorQuotes?.length}</p>

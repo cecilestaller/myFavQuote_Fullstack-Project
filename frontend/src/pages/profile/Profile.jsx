@@ -4,6 +4,8 @@ import DashNav from "../../components/dash_nav/DashNav";
 import picDummy from "./../../assets/img/picDummy.png";
 import "./Profile.scss";
 import { useState } from "react";
+import backArrow from "./../../assets/img/backArrow.png";
+import editPen from "./../../assets/img/editPen.png";
 
 const Profile = ({ onLogout, authorization, userProfileInfo }) => {
     const navigate = useNavigate();
@@ -75,10 +77,12 @@ const Profile = ({ onLogout, authorization, userProfileInfo }) => {
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
             <section className="content_wrapper">
-                <h4 className="back" onClick={() => navigate(-1)}>
-                    {" "}
-                    ◁ Back
-                </h4>
+                <img
+                    className="back"
+                    onClick={() => navigate(-1)}
+                    src={backArrow}
+                    alt="backArrow"
+                />
                 <h2 className="main_hl">
                     My
                     <span className="brygada_it"> Profile</span>
@@ -99,12 +103,12 @@ const Profile = ({ onLogout, authorization, userProfileInfo }) => {
                                 }
                                 alt={userProfileInfo?.userName}
                             />
-                            <p
+                            <img
+                                src={editPen}
+                                alt="editPen"
                                 className="editPen"
                                 onClick={() => setEdit(!edit)}
-                            >
-                                ✎
-                            </p>
+                            />
                         </div>
                         <div className="info_wrap">
                             <h3>
