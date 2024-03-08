@@ -18,6 +18,7 @@ import { getFavQuotesCtrl } from "./quoteController.js";
 
 import { patchEditAuthorCtrl } from "./authorController.js";
 import { getAllAuthorsCtrl } from "./authorController.js";
+import { deleteAuthorAndQuotesCtrl } from "./authorController.js";
 
 import { postFileUploadCtrl } from "./fileUploadController.js";
 
@@ -45,6 +46,7 @@ export const QuoteController = {
 export const AuthorController = {
     patchEditAuthorCtrl,
     getAllAuthorsCtrl,
+    deleteAuthorAndQuotesCtrl,
 };
 
 export const FileController = {

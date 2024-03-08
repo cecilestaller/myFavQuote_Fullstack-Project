@@ -9,4 +9,9 @@ export const authorRouter = express
         doJwtAuth,
         AuthorController.patchEditAuthorCtrl
     )
-    .get("/", doJwtAuth, AuthorController.getAllAuthorsCtrl);
+    .get("/", doJwtAuth, AuthorController.getAllAuthorsCtrl)
+    .delete(
+        "/:authorId",
+        doJwtAuth,
+        AuthorController.deleteAuthorAndQuotesCtrl
+    );

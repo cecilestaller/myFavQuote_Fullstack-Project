@@ -5,9 +5,6 @@ import backArrow from "./../../assets/img/backArrow.png";
 import editPen from "./../../assets/img/editPen.png";
 import { useEffect, useState } from "react";
 import { backendUrl } from "../../api";
-import QuoteCard from "../../components/quoteCard/QuoteCard";
-import AuthorCard from "../../components/authorCard/AuthorCard";
-import picDummy from "./../../assets/img/picDummy.png";
 import "./QuoteDetail.scss";
 
 const QuoteDetail = ({ onLogout, authorization, userProfileInfo }) => {
@@ -33,7 +30,6 @@ const QuoteDetail = ({ onLogout, authorization, userProfileInfo }) => {
                 );
                 const { success, result, error } = await response.json();
                 if (!success) return setErrorMessage("Loading Details failed");
-                console.log(result);
                 setQuoteDetails(result.quoteDetails);
                 setAuthorInfo(result.authorDetails);
             } catch (error) {
@@ -42,6 +38,12 @@ const QuoteDetail = ({ onLogout, authorization, userProfileInfo }) => {
         }
         fetchQuoteDetails();
     }, []);
+
+    function changeToEditMode() {
+        setEdit(!edit);
+        setQuoteText(quoteDetails?.quoteText);
+        setContext(quoteDetails?.context);
+    }
 
     async function editQuote(e) {
         e.preventDefault();
@@ -65,7 +67,6 @@ const QuoteDetail = ({ onLogout, authorization, userProfileInfo }) => {
         }
     }
 
-    console.log("Hi", quoteDetails);
     return (
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
@@ -85,75 +86,76 @@ const QuoteDetail = ({ onLogout, authorization, userProfileInfo }) => {
                     edit your Quote here.{" "}
                 </h3>
                 <section className="editQuote">
-                    {quoteDetails && (
-                        <article className="quote_wrap">
-                            <p className="quote_text">
-                                "{quoteDetails?.quoteText}"
-                            </p>
-                            <h4 className="author">{quoteDetails?.author}</h4>
-                            <p className="quote_info">
-                                {quoteDetails?.context}
-                            </p>
-                            <div>
-                                <img
-                                    src={editPen}
-                                    alt="editPen"
-                                    className="editPen"
-                                    onClick={() => setEdit(!edit)}
-                                />
-                            </div>
+                    {quoteDetails && edit ? (
+                        <section className="editForms_wrap">
+                            <form className="form_wrap">
+                                <div className="form_input">
+                                    <label htmlFor="content">
+                                        What was said?
+                                    </label>
+                                    <textarea
+                                        name="content"
+                                        placeholder="Quote..."
+                                        id="content"
+                                        cols="30"
+                                        rows="10"
+                                        value={quoteText}
+                                        onChange={(e) =>
+                                            setQuoteText(e.target.value)
+                                        }
+                                    ></textarea>
+                                </div>
+                                <h4 className="author">
+                                    {quoteDetails?.author}
+                                </h4>
+                                <div className="form_input">
+                                    <label htmlFor="context">
+                                        Any context needed?{" "}
+                                    </label>
+                                    <textarea
+                                        name="context"
+                                        placeholder="Context..."
+                                        id="context"
+                                        cols="30"
+                                        rows="4"
+                                        value={context}
+                                        onChange={(e) =>
+                                            setContext(e.target.value)
+                                        }
+                                    ></textarea>
+                                </div>
+                                <button className="btn" onClick={editQuote}>
+                                    Save
+                                </button>
+                            </form>
+                        </section>
+                    ) : (
+                        <article className="finalQuote_wrap">
+                            {quoteDetails && (
+                                <article className="quote_wrap">
+                                    <p className="quote_text">
+                                        "{quoteDetails?.quoteText}"
+                                    </p>
+                                    <h4 className="author">
+                                        {quoteDetails?.author}
+                                    </h4>
+                                    <p className="quote_info">
+                                        {quoteDetails?.context}
+                                    </p>
+                                    <div>
+                                        <img
+                                            src={editPen}
+                                            alt="editPen"
+                                            className="editPen"
+                                            onClick={changeToEditMode}
+                                        />
+                                    </div>
+                                </article>
+                            )}
                         </article>
                     )}
 
                     <p>{errorMessage}</p>
-                </section>
-                {edit && (
-                    <section className="editForms_wrap">
-                        <form className="form_wrap">
-                            <div className="form_input">
-                                <label htmlFor="content">What was said?</label>
-                                <textarea
-                                    name="content"
-                                    placeholder="Quote..."
-                                    id="content"
-                                    cols="30"
-                                    rows="10"
-                                    value={quoteText}
-                                    onChange={(e) =>
-                                        setQuoteText(e.target.value)
-                                    }
-                                ></textarea>
-                            </div>
-                            <div className="form_input">
-                                <label htmlFor="context">
-                                    Any context needed?{" "}
-                                </label>
-                                <textarea
-                                    name="context"
-                                    placeholder="Context..."
-                                    id="context"
-                                    cols="30"
-                                    rows="4"
-                                    value={context}
-                                    onChange={(e) => setContext(e.target.value)}
-                                ></textarea>
-                            </div>
-                            <button className="btn" onClick={editQuote}>
-                                Save
-                            </button>
-                        </form>
-                    </section>
-                )}
-                <section className="author_wrapper">
-                    <h3>Author:</h3>
-                    <AuthorCard
-                        author={authorInfo}
-                        imgUrl={
-                            authorInfo?.authorPicUrl
-                                ? `${backendUrl}/download/${authorInfo.authorPicUrl}`
-                                : picDummy
-                        }
-                    />
                 </section>
             </section>
             <Footer />

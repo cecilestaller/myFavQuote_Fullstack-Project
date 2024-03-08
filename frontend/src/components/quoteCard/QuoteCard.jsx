@@ -41,7 +41,6 @@ const QuoteCard = ({ quote, authorization }) => {
         }
     }
 
-    console.log(singleQuote);
     return (
         <>
             <article className="quote_wrap">

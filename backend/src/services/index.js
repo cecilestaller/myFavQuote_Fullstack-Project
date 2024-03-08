@@ -17,6 +17,7 @@ import { getFavQuotes } from "./getFavQuotes.js";
 
 import { editAuthor } from "./editAuthor.js";
 import { getAllAuthors } from "./getAllAuthors.js";
+import { deleteAuthor } from "./deleteAuthor.js";
 
 export const UserService = {
     registerUser,
@@ -41,4 +42,5 @@ export const QuoteService = {
 export const AuthorService = {
     editAuthor,
     getAllAuthors,
+    deleteAuthor,
 };

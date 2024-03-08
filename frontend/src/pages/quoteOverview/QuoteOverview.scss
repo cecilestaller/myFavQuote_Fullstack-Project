@@ -9,6 +9,18 @@
             cursor: pointer;
         }
     }
+    .sort_wrap {
+        .form_input {
+            select {
+                padding: 4px;
+                border-radius: 8px;
+                background-color: var(--white);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 
     .quoteCard_wrap {
         padding: 24px;

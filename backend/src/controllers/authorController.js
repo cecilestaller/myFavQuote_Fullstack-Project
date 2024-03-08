@@ -24,3 +24,16 @@ export const getAllAuthorsCtrl = catchAsync(
     },
     { message: "Could not retrieve Authors" }
 );
+
+export const deleteAuthorAndQuotesCtrl = catchAsync(
+    async (req, res) => {
+        const authenticatedUserId = req.verifiedUserClaims.sub;
+        const authorId = req.params.authorId;
+        const result = await AuthorService.deleteAuthor(
+            authenticatedUserId,
+            authorId
+        );
+        res.status(200).json({ success: true, result });
+    },
+    { message: "Could not delete Author" }
+);

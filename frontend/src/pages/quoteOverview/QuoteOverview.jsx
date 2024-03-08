@@ -9,7 +9,7 @@ import Footer from "../../components/footer/Footer";
 
 const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
     const navigate = useNavigate();
-
+    const [sortBy, setSortBy] = useState("");
     const [allQuotes, setAllQuotes] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -33,6 +33,24 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
         fetchAllQuotes();
     }, []);
 
+    useEffect(() => {
+        const sortQuotes = () => {
+            if (sortBy === "New") {
+                const latestAddedFirst = [...allQuotes].sort(
+                    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                );
+                setAllQuotes(latestAddedFirst);
+                console.log("Newest: ", latestAddedFirst);
+            } else if (sortBy === "Old") {
+                const latestAddedFirst = [...allQuotes].sort(
+                    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+                );
+                setAllQuotes(latestAddedFirst);
+            }
+        };
+        sortQuotes();
+    }, [sortBy]);
+
     return (
         <>
             <DashNav onLogout={onLogout} userProfileInfo={userProfileInfo} />
@@ -48,6 +66,20 @@ const QuoteOverview = ({ authorization, userProfileInfo, onLogout }) => {
                     <span className="brygada_it"> Overview</span>
                 </h2>
                 <h3>Total Amount of Quotes yet: {allQuotes?.length}</h3>
+                <form className="sort_wrap">
+                    <div className="form_input">
+                        <label htmlFor="sort">Sort Quotes: </label>
+                        <select
+                            name="sort"
+                            id="sort"
+                            onChange={(e) => setSortBy(e.target.value)}
+                        >
+                            <option value="">Select</option>
+                            <option value="New">latest added first</option>
+                            <option value="Old">oldest first</option>
+                        </select>
+                    </div>
+                </form>
                 <section className="quoteCard_wrap">
                     {errorMessage ? (
                         <p>{errorMessage}</p>
