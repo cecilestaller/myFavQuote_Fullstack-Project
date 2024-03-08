@@ -45,15 +45,15 @@ export async function doSilentRefresh() {
 export function silentRefreshLoop(currentAccessToken, onSiletRefreshDoneCb) {
     // abwarten, zeit: calcRefreshTokenAfterMs(accessToken)
     const delay = calcRefreshTokenAfterMs(currentAccessToken);
-    console.log("delaying silent refresh to", delay, "ms");
+    // console.log("delaying silent refresh to", delay, "ms");
     setTimeout(async () => {
         // fetch refresh endpoint with refreshToken --> newAccessToken
-        console.log("doing silent refresh...");
+        // console.log("doing silent refresh...");
         const newAccessToken = await doSilentRefresh();
-        console.log(
-            "silent refresh success, token length:",
-            newAccessToken?.length
-        );
+        // console.log(
+        //     "silent refresh success, token length:",
+        //     newAccessToken?.length
+        // );
         onSiletRefreshDoneCb(newAccessToken);
         // start the loop
         // doSilentRefresh for newAccessToken too!!

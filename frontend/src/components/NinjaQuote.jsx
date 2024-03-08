@@ -24,7 +24,6 @@ const NinjaQuote = () => {
         fetchZenQuotes();
     }, []);
 
-    console.log(zenQuoteData);
     return (
         <>
             <section style={{ padding: "5%" }}>

@@ -8,6 +8,7 @@ import QuoteCard from "../../components/quoteCard/QuoteCard";
 import backArrow from "./../../assets/img/backArrow.png";
 import editPen from "./../../assets/img/editPen.png";
 import Footer from "../../components/footer/Footer";
+import trash from "./../../assets/img/trash.png";
 
 const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
     const { authorId } = useParams();
@@ -32,7 +33,6 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                 );
                 const { success, result, error } = await response.json();
                 if (!success) return setErrorMessage("Loading Quotes failed");
-                console.log(result);
                 setAuthor(result.author);
                 setAllAuthorQuotes(result.quotes);
             } catch (error) {
@@ -97,6 +97,22 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
             if (!success) setErrorMessage("Could not Update author role...");
             console.log(result);
             window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function deleteAuthorAndQuotes() {
+        try {
+            const response = await fetch(
+                `${backendUrl}/api/v1/authors/${authorId}`,
+                {
+                    method: "DELETE",
+                    headers: { authorization },
+                }
+            );
+            const { success, result, error } = await response.json();
+            navigate("/authorlist");
         } catch (error) {
             console.log(error);
         }
@@ -192,6 +208,17 @@ const AuthorDetails = ({ onLogout, authorization, userProfileInfo }) => {
                                     Save Role
                                 </button>
                             </form>
+
+                            <button
+                                className="btn delete"
+                                onClick={deleteAuthorAndQuotes}
+                            >
+                                Delete Author
+                            </button>
+                            <p style={{ color: "red" }}>
+                                *By deleting the Author you also delete all
+                                their Quotes
+                            </p>
                         </section>
                     )}
 

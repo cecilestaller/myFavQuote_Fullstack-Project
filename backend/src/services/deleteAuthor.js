@@ -15,7 +15,20 @@ export async function deleteAuthor(authenticatedUserId, authorId) {
         userId: foundUser._id,
         authorId: foundAuthor._id,
     });
-    // delete Quotes of Author
-
+    if (foundQuotes.length === 0) {
+        throw new Error("There are no Quotes of the Author");
+    } else if (foundQuotes.length > 0) {
+        // delete Quotes of Author
+        const deletedQuotes = await Quote.deleteMany({
+            userId: foundUser._id,
+            authorId: foundAuthor._id,
+        });
+    }
     // delete Author
+    const deletedAuthor = await Author.deleteOne({
+        userId: foundUser._id,
+        _id: foundAuthor._id,
+    });
+
+    return { deletedAuthor, deletedQuotes };
 }
