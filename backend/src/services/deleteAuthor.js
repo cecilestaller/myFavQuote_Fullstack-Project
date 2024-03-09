@@ -16,19 +16,22 @@ export async function deleteAuthor(authenticatedUserId, authorId) {
         authorId: foundAuthor._id,
     });
     if (foundQuotes.length === 0) {
-        throw new Error("There are no Quotes of the Author");
+        // no more quotes of author exists, delete author directly
+        const deletedAuthor = await Author.deleteOne({
+            userId: foundUser._id,
+            _id: foundAuthor._id,
+        });
+        return deletedAuthor;
     } else if (foundQuotes.length > 0) {
-        // delete Quotes of Author
+        // delete Quotes of Author first
         const deletedQuotes = await Quote.deleteMany({
             userId: foundUser._id,
             authorId: foundAuthor._id,
         });
+        const deletedAuthor = await Author.deleteOne({
+            userId: foundUser._id,
+            _id: foundAuthor._id,
+        });
+        return { deletedAuthor, deletedQuotes };
     }
-    // delete Author
-    const deletedAuthor = await Author.deleteOne({
-        userId: foundUser._id,
-        _id: foundAuthor._id,
-    });
-
-    return { deletedAuthor, deletedQuotes };
 }
