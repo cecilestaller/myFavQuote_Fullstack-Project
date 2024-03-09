@@ -24,10 +24,11 @@ Someone said something hilarious? Make sure you never forget it again and record
 
 ## Demo:
 
--   not deployed yet... to have a look on the project you need to clone it :)
--   For the email verification I use googleapi. The refresh tokens expire very fast that's why you can Login to my App with following Test-Login:
+-   For the email verification I use googleapi. The refresh tokens expire very fast, that's why you can Login to my App with following Test-Login:
 -   email: ceci@mail.com
 -   password: ceci123
+
+https://myfavquote-fullstack-project-frontend.onrender.com/
 
 ## Screenshots 📸
 
