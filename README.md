@@ -1,6 +1,6 @@
 # Fullstack-Project: myFavQuotes ♥️
 
-This project was created as part of a Full-Stack Webdeveloper bootcamp from supercode while the backend part of the course.
+This project was created as part of a Full-Stack Webdeveloper bootcamp from supercode while the backend part of the course. I worked on it by myself.
 
 -   The learning objective of the project:
 -   Development of an own application with the MERN stack
